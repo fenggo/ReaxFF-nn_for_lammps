@@ -1,17 +1,3 @@
-#/atom 1 carbon
-#/atom 2 hydrogen
-#/atom 3 nitrogen
-#/atom 4 oxygen
-#/bond 1 1 2.000000
-#/bond 1 2 1.600000
-#/bond 1 3 2.000000
-#/bond 1 4 2.000000
-#/bond 2 2 1.200000
-#/bond 2 3 1.600000
-#/bond 2 4 1.600000
-#/bond 3 3 2.000000
-#/bond 3 4 2.000000
-#/bond 4 4 2.000000
 units       real
 atom_style  charge
 read_data    data.lammps
