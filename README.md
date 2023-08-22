@@ -17,7 +17,7 @@ nohup mpirun -n 8 ./lmp_mpi <in.lammps>out 2>&1 &
 To use ReaxFF-nn, you should write the pair parameters like:
 
 ```shell
-pair_style     reaxff control nn yes checkqeq yes
+pair_style     reaxff control.nn.v1 nn yes checkqeq yes
 pair_coeff     * * ffield.nn.CHNO.v1 C H N O
 ```
 The parameter "nn yes" in "pair_style" will turn on the usage of neural network calculation for bond-order and bond energy, and by set "nn no" will use the ordinary ReaxFF potential. The usage of ReaxFF-nn make no different with ReaxFF except the "nn" parameters.
