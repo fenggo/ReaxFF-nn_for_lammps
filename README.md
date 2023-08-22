@@ -22,4 +22,4 @@ pair_coeff     * * ffield.nn.CHNO.v1 C H N O
 ```
 The parameter "nn yes" in "pair_style" will turn on the usage of neural network calculation for bond-order and bond energy, and by set "nn no" will use the ordinary ReaxFF potential. The usage of ReaxFF-nn make no different with ReaxFF except the "nn" parameters.
 
-By set "nn no" will use ordinary ReaxFF potential, and make no different with old "REAXFF" folder.
+By set "nn no" will use ordinary ReaxFF potential, and make no different with old "REAXFF" folder. Examples is in the example folder.
