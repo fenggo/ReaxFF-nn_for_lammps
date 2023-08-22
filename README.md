@@ -1,4 +1,4 @@
-# ReaxFF-nn for lammps
+# ReaxFF-nn for LAMMPS
 *ReaxFF-nn* stand for Reactive Force Field with neural networks.
 
 Through this package can use ReaxFF-nn with LAMMPS simulator. Replace the "REAXFF" folder in "lammps/src/" directory with folder in this package and compile LAMMPS with commond like:
