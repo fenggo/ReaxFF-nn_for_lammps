@@ -1,0 +1,9 @@
+tabulate_long_range	0 ! denotes the granularity of long range tabulation, 0 means no tabulation
+nbrhood_cutoff	    3.500000  ! near neighbors cutoff for bond calculations
+bond_graph_cutoff	    0.3 ! bond strength cutoff for bond graphs
+hbond_cutoff	        7.5 ! cutoff distance for hydrogen bond interactions
+thb_cutoff		    0.000100 ! cutoff value for three body interactions
+mflayer_m		        9 ! neural network width
+mflayer_n		        1 ! number of hidden layer
+belayer_m		        9 ! neural network width
+belayer_n		        1 ! number of hidden layer
