@@ -1,37 +1,25 @@
-# ReaxFF-nn_for_lammps
+# ReaxFF-nn for lammps
 
-#### 介绍
-Use ReaxFF-nn mathine learning potentail with lammps
+Through this package we can use ReaxFF-nn with LAMMPS simulator. Replace the  REAXFF folder in "lammps/src/" with folder in this package and compile LAMMPS with commond like:
 
-#### 软件架构
-软件架构说明
+```shell
+make yes-reaxff
+make serial
+```
+then you will obtain the executable file name 'lmp_serial', and can be executed by command:
+```shell
+./lmp_seiral <in.lammps>out 
+```
+or execute it parallely:
+```shell
+nohup mpirun -n 8 ./lmp_mpi <in.lammps>out 2>&1 &  
+```
+To use ReaxFF-nn, you should write the pair parameters like:
 
+```shell
+pair_style     reaxff control nn yes checkqeq yes
+pair_coeff     * * ffield.nn.CHNO.v1 C H N O
+```
+The parameter "nn yes" in "pair_style" will turn on the usage of neural network calculation for bond-order and bond energy, and by set "nn no" will use the ordinary ReaxFF potential. The usage of ReaxFF-nn make no different with ReaxFF except the "nn" parameters.
 
-#### 安装教程
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 使用说明
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 参与贡献
-
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
-
-
-#### 特技
-
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+By set "nn no" will use ordinary ReaxFF potential, and make no different with old "REAXFF" folder.
