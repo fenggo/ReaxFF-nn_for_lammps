@@ -1,4 +1,5 @@
 # ReaxFF-nn for lammps
+*ReaxFF-nn* stand for Reactive Force Field with neural networks.
 
 Through this package can use ReaxFF-nn with LAMMPS simulator. Replace the "REAXFF" folder in "lammps/src/" directory with folder in this package and compile LAMMPS with commond like:
 
@@ -20,6 +21,12 @@ To use ReaxFF-nn, you should write the pair parameters like:
 pair_style     reaxff control.nn.v1 nn yes checkqeq yes
 pair_coeff     * * ffield.nn.CHNO.v1 C H N O
 ```
+"ffield.nn.CHNO.v1" is parameter file that can be trained by ["I-ReaxFF" package](https://github.com/fenggo/I-ReaxFF). The "I-ReaxFF" package can be installed by command:
+```shell
+pip install irff
+```
+or build from source.
+
 The parameter "nn yes" in "pair_style" will turn on the usage of neural network calculation for bond-order and bond energy, and by set "nn no" will use the ordinary ReaxFF potential. The usage of ReaxFF-nn make no different with ReaxFF except the "nn" parameters.
 
-By set "nn no" will use ordinary ReaxFF potential, and make no different with old "REAXFF" folder. An example is in the example folder.
+By set "nn no" will use ordinary ReaxFF potential, and make no different with old "REAXFF" folder. An example is given in the "example" folder.
