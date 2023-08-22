@@ -1,6 +1,6 @@
 # ReaxFF-nn for lammps
 
-Through this package we can use ReaxFF-nn with LAMMPS simulator. Replace the  REAXFF folder in "lammps/src/" with folder in this package and compile LAMMPS with commond like:
+Through this package can use ReaxFF-nn with LAMMPS simulator. Replace the "REAXFF" folder in "lammps/src/" directory with folder in this package and compile LAMMPS with commond like:
 
 ```shell
 make yes-reaxff
@@ -10,7 +10,7 @@ then you will obtain the executable file name 'lmp_serial', and can be executed 
 ```shell
 ./lmp_seiral <in.lammps>out 
 ```
-or execute it parallely:
+or execute it parallely if you compile LAMMPS with openmpi library:
 ```shell
 nohup mpirun -n 8 ./lmp_mpi <in.lammps>out 2>&1 &  
 ```
