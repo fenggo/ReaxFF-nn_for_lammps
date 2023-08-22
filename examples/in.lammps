@@ -41,5 +41,5 @@ log           lmp.log
 restart       10000 restart
 run           1000
  
-write_restart restart.eq
+write_restart restart
  
