@@ -4,6 +4,7 @@ read_data    data.lammps
  
 pair_style     reaxff control nn yes checkqeq yes
 pair_coeff     * * ffield C H N O
+
 compute       reax all pair reaxff
 variable eb   equal c_reax[1]
 variable ea   equal c_reax[2]
