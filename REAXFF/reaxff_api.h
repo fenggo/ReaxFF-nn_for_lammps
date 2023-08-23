@@ -51,6 +51,8 @@ extern void BO(reax_system *, control_params *, storage *, reax_list **);
 extern int BOp(storage *, reax_list *, double, int, int, far_neighbor_data *,
                single_body_parameters *, single_body_parameters *, two_body_parameters *);
 extern void Add_dBond_to_Forces(reax_system *, control_params *,int, int, storage *, reax_list **);
+extern void fnn(double *, network_parameters *, double *, double *, int, int);
+extern double enn(double *, network_parameters *, double *, int, int);
 
 // bonds
 
