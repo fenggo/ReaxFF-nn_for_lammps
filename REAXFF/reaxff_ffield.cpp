@@ -156,6 +156,9 @@ namespace ReaxFF {
         memset(&(hbp[0][0][0]),0,sizeof(hbond_parameters)*n*n*n);
         memset(&(fbp[0][0][0][0]),0,sizeof(four_body_header)*n*n*n*n);
         memset(&tor_flag[0][0][0][0],0,sizeof(char)*n*n*n*n);
+        
+        memset(&fnnp[0],0,sizeof(network_parameters)*n);
+        memset(&ennp[0][0],0,sizeof(network_parameters)*n*n);
 
         const int mfl_m  = control->mflayer_m;
         const int mfl_n  = control->mflayer_n;
