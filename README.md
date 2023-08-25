@@ -31,9 +31,9 @@ The parameter "nn yes" in "pair_style" will turn on the usage of neural network 
 
 By set "nn no" will use ordinary ReaxFF potential, and make no different with old "REAXFF" folder. An example is given in the "example" folder.
 
-Refference
-Feng Guo et.al., Intelligent-ReaxFF: Evaluating the reactive force field parameters with machine learning, Computational Materials Science 172, 109393, 2020.
+* Refference:
+1. Feng Guo et.al., Intelligent-ReaxFF: Evaluating the reactive force field parameters with machine learning, Computational Materials Science 172, 109393, 2020.
 
-Feng Guo et.al., ReaxFF-MPNN machine learning potential: a combination of reactive force field and message passing neural networks,Physical Chemistry Chemical Physics, 23, 19457-19464, 2021.
+2. Feng Guo et.al., ReaxFF-MPNN machine learning potential: a combination of reactive force field and message passing neural networks,Physical Chemistry Chemical Physics, 23, 19457-19464, 2021.
 
-Feng Guo et.al., ReaxFF-nn: A Reactive Machine Learning Potential in GULP and the Applications in the Thermal Conductivity Calculations of Carbon Nanostructures (Submitted, preprint: doi:10.21203/rs.3.rs-3133294/v1)
+3. Feng Guo et.al., ReaxFF-nn: A Reactive Machine Learning Potential in GULP and the Applications in the Thermal Conductivity Calculations of Carbon Nanostructures (Submitted, preprint: doi:10.21203/rs.3.rs-3133294/v1)
