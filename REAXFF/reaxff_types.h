@@ -39,6 +39,7 @@ namespace ReaxFF {
 typedef int ivec[3];
 typedef double rvec[3];
 typedef double rvec2[2];
+typedef double rvec9[9];
 
 // import LAMMPS' definition of tagint and bigint
 typedef LAMMPS_NS::tagint rc_tagint;

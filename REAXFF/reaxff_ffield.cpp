@@ -536,8 +536,17 @@ namespace ReaxFF {
           if ((j >= 0) && (m >= 0)) { // this means the entry is not in compact form
             
             if ((j < ntypes) && (k < ntypes) && (l < ntypes) && (m < ntypes)) {
-             
+              if (nnflag) { 
                 // four-body interaction j-k-l-m and j-l-k-m shares the same value in the ReaxFF fortran codes
+                tor_flag[j][k][l][m] = tor_flag[m][l][k][j] = tor_flag[j][l][k][m] = tor_flag[m][k][l][j] =1;  
+                fbp[j][k][l][m].cnt  = fbp[m][l][k][j].cnt  = fbp[j][l][k][m].cnt  = fbp[m][k][l][j].cnt  =1;
+
+                fbp[j][k][l][m].prm[0].V1     = fbp[m][l][k][j].prm[0].V1     = fbp[j][l][k][m].prm[0].V1     = fbp[m][k][l][j].prm[0].V1     = val1;
+                fbp[j][k][l][m].prm[0].V2     = fbp[m][l][k][j].prm[0].V2     = fbp[j][l][k][m].prm[0].V2     = fbp[m][k][l][j].prm[0].V2     = val2;
+                fbp[j][k][l][m].prm[0].V3     = fbp[m][l][k][j].prm[0].V3     = fbp[j][l][k][m].prm[0].V3     = fbp[m][k][l][j].prm[0].V3     = val3;
+                fbp[j][k][l][m].prm[0].p_tor1 = fbp[m][l][k][j].prm[0].p_tor1 = fbp[j][l][k][m].prm[0].p_tor1 = fbp[m][k][l][j].prm[0].p_tor1 = val4;
+                fbp[j][k][l][m].prm[0].p_cot1 = fbp[m][l][k][j].prm[0].p_cot1 = fbp[j][l][k][m].prm[0].p_cot1 = fbp[m][k][l][j].prm[0].p_cot1 = val5;
+              } else {
                 tor_flag[j][k][l][m] = tor_flag[m][l][k][j]  = 1;  
                 fbp[j][k][l][m].cnt  = fbp[m][l][k][j].cnt   = 1;
 
@@ -546,6 +555,7 @@ namespace ReaxFF {
                 fbp[j][k][l][m].prm[0].V3     = fbp[m][l][k][j].prm[0].V3     = val3;
                 fbp[j][k][l][m].prm[0].p_tor1 = fbp[m][l][k][j].prm[0].p_tor1 = val4;
                 fbp[j][k][l][m].prm[0].p_cot1 = fbp[m][l][k][j].prm[0].p_cot1 = val5;
+              }
             }
 
           } else { /* This means the entry is of the form 0-X-Y-0 */
@@ -839,6 +849,8 @@ namespace ReaxFF {
       memory->create(reax->thbp,n,n,n,"reaxff:thbp");
       memory->create(reax->hbp,n,n,n,"reaxff:hbp");
       memory->create(reax->fbp,n,n,n,n,"reaxff:fbp");
+      memory->create(reax->fnnp,n,"reaxff:fnnp");
+      memory->create(reax->ennp,n,n,"reaxff:ennp");
     }
 
     // broadcast type specific force field data

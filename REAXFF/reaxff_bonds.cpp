@@ -33,7 +33,7 @@
 
 namespace ReaxFF {
 
-  double enn(double x[3], network_parameters *fnp, double *delta, int m, int n) {
+  double enn(rvec x, network_parameters *fnp, rvec delta, int m, int n) {
     /***  a neural network function to compute bond-order correction coefficence  ***/
     double zi[m],ai[m];
     double zh[m],ah[m];

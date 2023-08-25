@@ -302,7 +302,7 @@ namespace ReaxFF {
     return 0;
   }
 
-  void fnn(double x[3], network_parameters *fnp, double *ao, double *delta, int m, int n) {
+  void fnn(rvec x, network_parameters *fnp, rvec ao, rvec9 delta, int m, int n) {
     /***  a neural network function to compute bond-order correction coefficence  ***/
     double zi[m],ai[m];
     double zh[m],ah[m];
