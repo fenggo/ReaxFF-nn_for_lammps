@@ -305,7 +305,7 @@ namespace ReaxFF {
   void fnn(rvec x, network_parameters *fnp, rvec ao, rvec9 delta, int m, int n) {
     /***  a neural network function to compute bond-order correction coefficence  ***/
     double zi[m],ai[m];
-    double zh[m],ah[m];
+    double zh[m],ah[n+1][m];
     double zo[3];
     double delta_i[m][3];
     double delta_h[n+1][m][m] = {0.0};
@@ -337,17 +337,17 @@ namespace ReaxFF {
                   if (l==0) {
                      zh[i] = zh[i] + fnp->wh[l][i][j] * ai[j];
                   } else {
-                     zh[i] = zh[i] + fnp->wh[l][i][j] * ah[j];
+                     zh[i] = zh[i] + fnp->wh[l][i][j] * ah[l-1][j];
                   }
                 }
               zh[i] = zh[i] + fnp->bh[l][i];
-              ah[i] = 1.0/(1.0+exp(-zh[i]));         // output of hidden layers
-              sp_h[l][i] = ah[i]*(1.0-ah[i]);        // sigma_prime of inpute layer
+              ah[l][i] = 1.0/(1.0+exp(-zh[i]));         // output of hidden layers
+              sp_h[l][i] = ah[l][i]*(1.0-ah[l][i]);        // sigma_prime of inpute layer
           }
       }
     } else {  // no hidden layer
       for (int i = 0; i < m; i++) { 
-        ah[i] = ai[i];
+        ah[n-1][i] = ai[i];
       }
     } //  end hidden layer
 
@@ -355,7 +355,7 @@ namespace ReaxFF {
     for (int i = 0; i < 3; i++) {
         zo[i] = 0.0;
         for (int j = 0; j < m; j++) {
-            zo[i] = zo[i] + fnp->wo[i][j] * ah[j];
+            zo[i] = zo[i] + fnp->wo[i][j] * ah[n-1][j];
         }
         zo[i] = zo[i] + fnp->bo[i];
         ao[i] = 1.0/(1.0+exp(-zo[i]));       // output of input layers
