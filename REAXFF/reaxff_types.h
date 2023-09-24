@@ -174,8 +174,8 @@ struct four_body_header {
 struct network_parameters{
   double  wi[12][3];     // If the layer (m,n) exceed (12,2),  
   double  bi[12];        // then should increase these values.
-  double  wh[2][12][12]; // for example,the large value is m and n, then set:
-  double  bh[2][12];     //   wi[3][m],bi[m],wh[n][m][m],bh[n][m],wo[m][3],bo[3]
+  double  wh[3][12][12]; // for example,the large value is m and n, then set:
+  double  bh[3][12];     //   wi[3][m],bi[m],wh[n][m][m],bh[n][m],wo[m][3],bo[3]
   double  wo[3][12];     // 
   double  bo[3];         //  The (m,n) normally set as (9,1) is enough.
 };
