@@ -305,12 +305,12 @@ namespace ReaxFF {
   void fnn(rvec x, network_parameters *fnp, rvec ao, rvec9 delta, int m, int n) {
     /***  a neural network function to compute bond-order correction coefficence  ***/
     double zi[m],ai[m];
-    double zh[m],ah[n+1][m];
+    double zh[m],ah[n][m];
     double zo[3];
     double delta_i[m][3];
-    double delta_h[n+1][m][m] = {0.0};
+    double delta_h[n][m][m] = {0.0};
     //double delta[3][3];
-    double sp_i[m],sp_h[n+1][m],sp_o[3];  // sigma_prime: the derivative of activation function
+    double sp_i[m],sp_h[n][m],sp_o[3];  // sigma_prime: the derivative of activation function
  
     for (int i = 0; i < 9; i++) delta[i] = 0.0;
      

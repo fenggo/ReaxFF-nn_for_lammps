@@ -36,11 +36,11 @@ namespace ReaxFF {
   double enn(rvec x, network_parameters *fnp, rvec delta, int m, int n) {
     /***  a neural network function to compute bond-order correction coefficence  ***/
     double zi[m],ai[m];
-    double zh[m],ah[n+1][m];
+    double zh[m],ah[n][m];
     double ao,zo,sp_o;
     double delta_i[m][3];
-    double delta_h[n+1][m][m];
-    double sp_i[m],sp_h[n+1][m];  // sigma_prime: the derivative of activation function
+    double delta_h[n][m][m];
+    double sp_i[m],sp_h[n][m];  // sigma_prime: the derivative of activation function
     double wh[m][m];
 
     //fprintf(stderr,"\t x (enn): %f %f %f \n", x[0],x[1],x[2]);
