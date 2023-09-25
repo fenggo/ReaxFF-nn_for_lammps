@@ -37,3 +37,5 @@ By set "nn no" will use ordinary ReaxFF potential, and make no different with ol
 2. Feng Guo et.al., ReaxFF-MPNN machine learning potential: a combination of reactive force field and message passing neural networks,Physical Chemistry Chemical Physics, 23, 19457-19464, 2021.
 
 3. Feng Guo et.al., ReaxFF-nn: A Reactive Machine Learning Potential in GULP and the Applications in the Thermal Conductivity Calculations of Carbon Nanostructures (Submitted, preprint: doi:10.21203/rs.3.rs-3133294/v1)
+
+** This package do not affect the use of ordinary ReaxFF potential **
