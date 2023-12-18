@@ -21,6 +21,8 @@ To use ReaxFF-nn, you should write the pair parameters like:
 pair_style     reaxff control.nn.v1 nn yes checkqeq yes
 pair_coeff     * * ffield.nn.CHNO.v1 C H N O
 ```
+and the others option in usage are same with ReaxFF, please reffer to ReaxFF examples for further usage.
+
 "ffield.nn.CHNO.v1" is the parameter file that can be trained by ["I-ReaxFF" package](https://github.com/fenggo/I-ReaxFF). The "I-ReaxFF" package can be installed by command:
 ```shell
 pip install irff
