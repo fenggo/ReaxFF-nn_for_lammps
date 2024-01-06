@@ -55,20 +55,23 @@ namespace ReaxFF {
     coef.C2dbo = bo_ij->C2dbo * c;             
     coef.C3dbo = bo_ij->C3dbo * c;
 
+    double cdDelta = workspace->CdDelta[i] + workspace->CdDelta[j];
+    double cdbo    = c;
+
     if (control->nnflag) {
-      c = bo_ij->Cdbos + bo_ji->Cdbos + workspace->CdDelta[i] + workspace->CdDelta[j];      // dEbond/dBO
+      c = bo_ij->Cdbos + bo_ji->Cdbos + cdDelta + cdbo;      // dEbond/dBO
       coef.C1dbos = bo_ij->C1dbos * c;         // dBO/dBO' * dEbond/dBO 
       coef.C2dbos = bo_ij->C2dbos * c;         // in nn mode, it should be dEbond/dBO_s
       coef.C3dbos = bo_ij->C3dbos * c;
       coef.C4dbos = bo_ij->C4dbos * c;
 
-      c = bo_ij->Cdbopi + bo_ji->Cdbopi + workspace->CdDelta[i] + workspace->CdDelta[j];         // dEbond/dBOpi
+      c = bo_ij->Cdbopi + bo_ji->Cdbopi + cdDelta + cdbo;         // dEbond/dBOpi
       coef.C1dbopi = bo_ij->C1dbopi * c;         // dBOpi/dBO'pi * dEbond/dBOpi
       coef.C2dbopi = bo_ij->C2dbopi * c;
       coef.C3dbopi = bo_ij->C3dbopi * c;
       coef.C4dbopi = bo_ij->C4dbopi * c;
 
-      c = bo_ij->Cdbopi2 + bo_ji->Cdbopi2 + workspace->CdDelta[i] + workspace->CdDelta[j];
+      c = bo_ij->Cdbopi2 + bo_ji->Cdbopi2  + cdDelta + cdbo;
       coef.C1dbopi2 = bo_ij->C1dbopi2 * c;
       coef.C2dbopi2 = bo_ij->C2dbopi2 * c;
       coef.C3dbopi2 = bo_ij->C3dbopi2 * c;
