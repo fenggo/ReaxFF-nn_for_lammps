@@ -214,7 +214,7 @@ namespace ReaxFF {
           bo_ij->Cdbos -= dfe[0]*twbp->De_s;
           bo_ij->Cdbopi -= dfe[1]*twbp->De_s;
           bo_ij->Cdbopi2 -= dfe[2]*twbp->De_s;
-          bo_ij->Cdbo  =  bo_ij->Cdbos + bo_ij->Cdbopi + bo_ij->Cdbopi2;
+          // bo_ij->Cdbo  =  bo_ij->Cdbos + bo_ij->Cdbopi + bo_ij->Cdbopi2;
           // fprintf(stderr,"\t dE/dbo: %f %f %f %f\n", bo_ij->Cdbos ,bo_ij->Cdbopi, bo_ij->Cdbopi2,bo_ij->Cdbo);
         } else {
           bo_ij->Cdbo += CEbo;
