@@ -311,11 +311,19 @@ namespace ReaxFF {
     double zh[m],ah[n][m];
     double zo[3];
     double delta_i[m][3];
-    double delta_h[n][m][m] = {0.0};
+    double delta_h[n][m][m]; // = {0.0};
     //double delta[3][3];
     double sp_i[m],sp_h[n][m],sp_o[3];  // sigma_prime: the derivative of activation function
  
     for (int i = 0; i < 9; i++) delta[i] = 0.0;
+    // for (int i=0;i<n;++i) {
+    //     for (int j=0;j<m;++j) {
+    //         for (int j=0;j<m;++j) {
+    //             delta_h[i][j][k] = 0.0;
+    //         }
+    //     }
+    // }
+    memset(delta_h, 0, sizeof(delta_h));
      
     //memset(delta_h, 0, sizeof(delta));
     //fprintf(stderr,"\t x: %f %f %f \n", x[0],x[1],x[2]);
