@@ -324,8 +324,7 @@ namespace ReaxFF {
     //     }
     // }
     memset(delta_h, 0, sizeof(delta_h));
-     
-    //memset(delta_h, 0, sizeof(delta));
+
     //fprintf(stderr,"\t x: %f %f %f \n", x[0],x[1],x[2]);
 //    ****    input layer: zi = x*wi + b    ***  (m,n) = (3,9)
     for (int i = 0; i < m; i++) {
